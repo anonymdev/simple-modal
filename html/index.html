@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../css/design.css">
+    <script src="../js/load-scripts.js"></script>
+    <title> Simple Products Manager </title>
+  </head>
+
+  <body>
+    <div class="center">
+      <h2><img class="logo" src="../img/logo.png"> <span class="firstStep">- first step </span></h2>
+
+      <!-- Trigger/Open The Modal -->
+      <button class="openModal" id="openModal"> Add Car </button>
+    </div>
+
+    <!-- The Modal -->
+    <div id="modal" class="modal center">
+
+      <!-- Modal content -->
+      <div class="modal-content">
+        <div class="modal-header">
+          <span class="closeModal">&times;</span>
+          <h2>Add Product</h2>
+          <span> Second-hand Car </span>
+          <span style="float: right;"> Category: Automobiles </span>
+        </div>
+        <hr>
+        <div class="modal-body">
+          <ul>
+            <li> <a id="firstTab" class="active" href="javascript:void(0)"> First tab </a> </li>
+            <li> <a id="secondTab" class href="javascript:void(0)"> Second tab </a> </li>
+          </ul>
+
+          <hr>
+
+          <div class="tab-content">
+            <div id="firstTabContent">
+              <h3> Primul tab </h3>
+            </div>
+
+            <div style="display:none;" id="secondTabContent">
+              <h3> Al doilea tab </h3>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </body>
+</html>
