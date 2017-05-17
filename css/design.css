@@ -1,3 +1,7 @@
+body * {
+  font-family: Verdana, Geneva, sans-serif;
+}
+
 /* logo of optymyze */
 .logo {
   width: 200px;
@@ -5,7 +9,7 @@
 
 /* text to vertically align to the logo */
 .firstStep {
-  vertical-align: 60%;
+  vertical-align: 50%;
 }
 
 /* lines should not have margin */
@@ -78,6 +82,9 @@ li a:hover:not(.active) {
 /* this is the content of the modal */
 .modal-content {
   position: absolute;
+  -webkit-border-radius: 10 10 1 10;
+  -moz-border-radius: 10 10 10 10;
+  border-radius: 10px 10px 10px 10px;
   background-color: #fefefe;
   margin: auto;
   top: 50%;
@@ -160,5 +167,8 @@ li a:hover:not(.active) {
 .modal-header {
   padding: 2px 16px;
   background-color: #f2f2f2;
+  -webkit-border-radius: 10 10 0 0;
+  -moz-border-radius: 10 10 0 0;
+  border-radius: 10px 10px 0px 0px;
   color: black;
 }
