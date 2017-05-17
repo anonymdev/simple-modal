@@ -1,0 +1,42 @@
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+li {
+  float: left;
+  width: 50%;
+}
+
+li a {
+  display: block;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  color: black;
+}
+
+li a:hover:not(.active) {
+  background-color: lightgray;
+}
+
+.active {
+  background-color: silver;
+}
+
+/* content inside each tab */
+.tab-content {
+  margin-top: 15px;
+  margin-left: 15px;
+  margin-bottom: 15px;
+  max-height: 50vh;
+  overflow-y: auto;
+}
+
+@media only screen and (max-width:600px){
+  li {
+    width: 100%;
+  }
+}

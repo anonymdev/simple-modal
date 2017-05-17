@@ -2,14 +2,14 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="../css/design.css">
+    <link rel="stylesheet" type="text/css" href="../css/index.css">
     <script src="../js/load-scripts.js"></script>
     <title> Simple Products Manager </title>
   </head>
 
   <body>
     <div class="center">
-      <h2><img class="logo" src="../img/logo.png"> <span class="firstStep">- first step </span></h2>
+      <h2><img class="logo" src="../img/logo.png"> <span class="firstStep"> first step </span></h2>
 
       <!-- Trigger/Open The Modal -->
       <button class="openModal" id="openModal"> Add Car </button>
@@ -24,7 +24,7 @@
           <span class="closeModal">&times;</span>
           <h2>Add Product</h2>
           <span> Second-hand Car </span>
-          <span style="float: right;"> Category: Automobiles </span>
+          <span class="category"> Category: Automobiles </span>
         </div>
         <hr>
         <div class="modal-body">
@@ -37,7 +37,39 @@
 
           <div class="tab-content">
             <div id="firstTabContent">
-              <h3> Primul tab </h3>
+              <form>
+                <div class="field-container">
+                  <span class="label"> Title of announcement<span class="is-required">*</span> </span>
+                  <input class="value has-error" type="text" id="titleOfAnnouncement">
+                  <span class="error-message is-required"> Title is required </span>
+                </div>
+                <div class="field-container">
+                  <span class="label"> Brand<span class="is-required">*</span> </span>
+                  <input class="value has-error" type="text" id="brand">
+                  <span class="error-message is-required"> Brand is required </span>
+                </div>
+                <div class="field-container">
+                  <span class="label"> Manufacturing Year<span class="is-required">*</span> </span>
+                  <input class="value has-error" type="text" id="manufacturingYear">
+                  <span class="error-message is-required"> Year is required </span>
+                </div>
+                <div class="field-container">
+                  <span class="label"> Mileage<span class="is-required">*</span> </span>
+                  <input class="value has-error" type="text" id="mileage">
+                  <span class="error-message is-required"> Mileage is required </span>
+                  <span class="error-message"> Mileage has to be a number </span>
+                </div>
+                <div class="field-container">
+                  <span class="label"> Fuel Type<span class="is-required">*</span> </span>
+                  <input class="value has-error" type="text" id="fuelType">
+                  <span class="error-message is-required"> Fuel type is required </span>
+                </div>
+                <div class="field-container">
+                  <span class="label"> Color<span class="is-required">*</span> </span>
+                  <input class="value has-error" type="text" id="color">
+                  <span class="error-message is-required"> Color is required </span>
+                </div>
+              </form>
             </div>
 
             <div style="display:none;" id="secondTabContent">

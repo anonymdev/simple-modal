@@ -1,0 +1,32 @@
+.openModal {
+  background: #ffffff;
+  background-image: -webkit-linear-gradient(top, #ffffff, #cccccc);
+  background-image: -moz-linear-gradient(top, #ffffff, #cccccc);
+  background-image: -ms-linear-gradient(top, #ffffff, #cccccc);
+  background-image: -o-linear-gradient(top, #ffffff, #cccccc);
+  background-image: linear-gradient(to bottom, #ffffff, #cccccc);
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  -webkit-box-shadow: 0px 1px 5px #666666;
+  -moz-box-shadow: 0px 1px 5px #666666;
+  box-shadow: 0px 1px 5px #666666;
+  font-family: Arial;
+  color: #5e5e5e;
+  font-size: 15px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+.openModal:hover {
+  background: #f7f7f7;
+  background-image: -webkit-linear-gradient(top, #f7f7f7, #8f8f8f);
+  background-image: -moz-linear-gradient(top, #f7f7f7, #8f8f8f);
+  background-image: -ms-linear-gradient(top, #f7f7f7, #8f8f8f);
+  background-image: -o-linear-gradient(top, #f7f7f7, #8f8f8f);
+  background-image: linear-gradient(to bottom, #f7f7f7, #8f8f8f);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.openModal:focus {outline:0;}

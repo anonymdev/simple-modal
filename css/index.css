@@ -1,0 +1,40 @@
+@import url("../css/tabs.css");
+@import url("../css/modal.css");
+@import url("../css/open-modal-button.css");
+@import url("../css/fields.css");
+
+/* a nice safe font with fallbacks */
+body * {
+  font-family: Verdana, Geneva, sans-serif;
+}
+
+/* logo of optymyze */
+.logo {
+  width: 200px;
+}
+
+/* text to vertically align to the logo */
+.firstStep {
+  vertical-align: 50%;
+}
+
+/* lines should not have margin */
+hr {
+  margin-top: 0px!important;
+  margin-bottom: 0px!important;
+}
+
+/* this centers an element in the page and also the text inside it */
+.center {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+@media only screen and (max-width:670px){
+  .firstStep {
+    display: block;
+  }
+}
