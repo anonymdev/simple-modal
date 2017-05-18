@@ -14,7 +14,7 @@ body * {
 }
 
 /* text to vertically align to the logo */
-.firstStep {
+.alignWithPicture {
   vertical-align: 50%;
 }
 
@@ -34,7 +34,7 @@ hr {
 }
 
 @media only screen and (max-width:670px){
-  .firstStep {
+  h2 > .alignWithPicture {
     display: block;
   }
 }

@@ -9,7 +9,10 @@
 
   <body>
     <div class="center">
-      <h2><img class="logo" src="../img/logo.png"> <span class="firstStep"> first step </span></h2>
+      <h2>
+        <img class="logo" src="../img/logo.png">
+        <span class="alignWithPicture"> first step </span>
+      </h2>
 
       <!-- Trigger/Open The Modal -->
       <button class="openModal" id="openModal"> Add Car </button>
@@ -39,35 +42,67 @@
             <div id="firstTabContent">
               <form>
                 <div class="field-container">
-                  <span class="label"> Title of announcement<span class="is-required">*</span> </span>
-                  <input class="value has-error" type="text" id="titleOfAnnouncement">
-                  <span class="error-message is-required"> Title is required </span>
+                  <span class="label"> Title of announcement<span class="star">*</span> </span>
+                  <input class="value" type="text" id="titleOfAnnouncement">
+                  <span class="error-message"> Title is required </span>
                 </div>
                 <div class="field-container">
-                  <span class="label"> Brand<span class="is-required">*</span> </span>
-                  <input class="value has-error" type="text" id="brand">
-                  <span class="error-message is-required"> Brand is required </span>
+                  <span class="label">
+                    <span>
+                      Brand
+                      <span class="star">*</span>
+                    </span>
+                    <!-- at the beggining, no img is selected, so the source is the smallest gif existing (1x1)-->
+                    <img class="brand" id="brandLogo" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs%3D">
+                  </span>
+                  <select class="value" id="brand">
+                    <option value="" selected>Select...</option>
+                    <option value="dacia">Dacia</option>
+                    <option value="fiat">Fiat</option>
+                    <option value="ford">Ford</option>
+                    <option value="mercedess">Mercedess</option>
+                    <option value="opel">Opel</option>
+                    <option value="renault">Renault</option>
+                    <option value="tesla">Tesla</option>
+                    <option value="volkswagen">Volkswagen</option>
+                  </select>
+                  <span class="error-message"> Brand is required </span>
                 </div>
                 <div class="field-container">
-                  <span class="label"> Manufacturing Year<span class="is-required">*</span> </span>
-                  <input class="value has-error" type="text" id="manufacturingYear">
-                  <span class="error-message is-required"> Year is required </span>
+                  <span class="label"> Manufacturing Year<span class="star">*</span> </span>
+                  <input class="value" type="text" id="manufacturingYear">
+                  <span class="error-message"> Year is required </span>
+                  <span class="error-message"> Year has to be a valid car year </span>
                 </div>
                 <div class="field-container">
-                  <span class="label"> Mileage<span class="is-required">*</span> </span>
-                  <input class="value has-error" type="text" id="mileage">
-                  <span class="error-message is-required"> Mileage is required </span>
+                  <span class="label"> Mileage<span class="star">*</span> </span>
+                  <input class="value" type="text" id="mileage">
+                  <span class="error-message"> Mileage is required </span>
                   <span class="error-message"> Mileage has to be a number </span>
                 </div>
                 <div class="field-container">
-                  <span class="label"> Fuel Type<span class="is-required">*</span> </span>
-                  <input class="value has-error" type="text" id="fuelType">
-                  <span class="error-message is-required"> Fuel type is required </span>
+                  <span class="label"> Fuel Type<span class="star">*</span> </span>
+                  <select class="value" id="fuelType">
+                    <option value="" selected>Select...</option>
+                    <option value="ethanol">Ethanol</option>
+                    <option value="methanol">Methanol</option>
+                    <option value="gasoline">Gasoline</option>
+                    <option value="diesel">Diesel</option>
+                    <option value="naturalGas">Natural gas</option>
+                    <option value="hydrogen">Hydrogen</option>
+                    <option value="biodiesel">Biodiesel</option>
+                  </select>
+                  <span class="error-message"> Fuel type is required </span>
                 </div>
                 <div class="field-container">
-                  <span class="label"> Color<span class="is-required">*</span> </span>
-                  <input class="value has-error" type="text" id="color">
-                  <span class="error-message is-required"> Color is required </span>
+                  <span class="label">
+                    Color
+                    <span class="star">*</span>
+                    <span class="box" id="colorBox"></span>
+                  </span>
+                  <input class="value" type="text" id="color">
+                  <span class="error-message"> Color is required </span>
+                  <span class="error-message"> Color is invalid (hex, rgb(), color) </span>
                 </div>
               </form>
             </div>

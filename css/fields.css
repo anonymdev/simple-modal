@@ -25,6 +25,26 @@
   border: 2px solid red;
 }
 
+.brand {
+  max-height: 30px;
+}
+
+.box {
+  height: 10px;
+  width: 10px;
+  border: 2px solid black;
+  display: none;
+}
+
+.box.show {
+  display: inline-block;
+}
+
+/* align select with picture. */
+.mt-5 {
+  margin-top: 5px;
+}
+
 .error-message {
   width: 38%;
   float: right;
@@ -35,10 +55,6 @@
 }
 
 .error-message.is-required {
-  display: block;
-}
-
-.error-message.wrong-type {
   display: block;
 }
 
