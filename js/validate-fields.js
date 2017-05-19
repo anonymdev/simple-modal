@@ -43,6 +43,7 @@ function changeColor() {
   }
 }
 
+// checks if a field is a number
 function checkNumber() {
   if (isNaN(this.value)) {
     addContainerErrors(this.parentElement.children, 1);
@@ -52,6 +53,8 @@ function checkNumber() {
   return true;
 }
 
+// checks if a field is a valid car year (between the first
+// car that was ever made in 1908 and current year).
 function checkYear() {
   if (!checkNumber.bind(this)() || ((this.value*1) > new Date().getFullYear()) ||
     (this.value*1) < 1908) {
@@ -61,7 +64,7 @@ function checkYear() {
   }
 }
 
-// function that adds errors if there are any on blur
+// function that adds errors if fields are empty on blur
 function blurEvent() {
   !this.value && addContainerErrors(this.parentElement.children);
   removeClass(this, "is-initial");
