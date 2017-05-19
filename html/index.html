@@ -40,10 +40,10 @@
 
           <div class="tab-content">
             <div id="firstTabContent">
-              <form>
+              <form id="firstForm">
                 <div class="field-container">
                   <span class="label"> Title of announcement<span class="star">*</span> </span>
-                  <input class="value" type="text" id="titleOfAnnouncement">
+                  <input class="value is-initial" type="text" id="titleOfAnnouncement">
                   <span class="error-message"> Title is required </span>
                 </div>
                 <div class="field-container">
@@ -55,7 +55,7 @@
                     <!-- at the beggining, no img is selected, so the source is the smallest gif existing (1x1)-->
                     <img class="brand" id="brandLogo" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs%3D">
                   </span>
-                  <select class="value" id="brand">
+                  <select class="value is-initial" id="brand">
                     <option value="" selected>Select...</option>
                     <option value="dacia">Dacia</option>
                     <option value="fiat">Fiat</option>
@@ -70,19 +70,19 @@
                 </div>
                 <div class="field-container">
                   <span class="label"> Manufacturing Year<span class="star">*</span> </span>
-                  <input class="value" type="text" id="manufacturingYear">
+                  <input class="value is-initial" type="text" id="manufacturingYear">
                   <span class="error-message"> Year is required </span>
                   <span class="error-message"> Year has to be a valid car year </span>
                 </div>
                 <div class="field-container">
                   <span class="label"> Mileage<span class="star">*</span> </span>
-                  <input class="value" type="text" id="mileage">
+                  <input class="value is-initial" type="text" id="mileage">
                   <span class="error-message"> Mileage is required </span>
                   <span class="error-message"> Mileage has to be a number </span>
                 </div>
                 <div class="field-container">
                   <span class="label"> Fuel Type<span class="star">*</span> </span>
-                  <select class="value" id="fuelType">
+                  <select class="value is-initial" id="fuelType">
                     <option value="" selected>Select...</option>
                     <option value="ethanol">Ethanol</option>
                     <option value="methanol">Methanol</option>
@@ -100,7 +100,7 @@
                     <span class="star">*</span>
                     <span class="box" id="colorBox"></span>
                   </span>
-                  <input class="value" type="text" id="color">
+                  <input class="value is-initial" type="text" id="color">
                   <span class="error-message"> Color is required </span>
                   <span class="error-message"> Color is invalid (hex, rgb(), color) </span>
                 </div>

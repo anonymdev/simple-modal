@@ -21,3 +21,36 @@ function removeClass(element, cName) {
     element.className = currentClassNames.join(" ");
   }
 }
+
+// function that adds error classes to specific elements
+// elements[0] is the .label class,
+// elements[1] is the .value class,
+// elements[2..n] are the .error-message class elements
+// if there are multiple error-message spans, errorMessageIndex
+// will represent the index of the message to be displayed
+// (defaults to 0, the 'required' message)
+function addContainerErrors(elements, errorMessageIndex) {
+  var asterix = elements[0].querySelectorAll(".star")[0];
+
+  addClass(asterix, 'is-required');
+  addClass(elements[1], 'has-error');
+
+  for (let i = 2; i < elements.length; i++) {
+    var index = errorMessageIndex || 0;
+
+    index += 2;
+    (i === index) ? addClass(elements[i], 'is-required') : removeClass(elements[i], 'is-required');
+  }
+}
+
+// function that removes error classes to specific elements
+function removeContainerErrors(elements) {
+  var asterix = elements[0].querySelectorAll(".star")[0];
+
+  removeClass(asterix, 'is-required');
+  removeClass(elements[1], 'has-error');
+
+  for (let i = 2; i < elements.length; i++) {
+    removeClass(elements[i], 'is-required');
+  }
+}
