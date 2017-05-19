@@ -24,8 +24,8 @@ function loadScript(src, f) {
 
 document.addEventListener('DOMContentLoaded', function() {
   // dynamically load dependent scripts
-  loadScript('../js/toggle-modal.js', function() {
-    loadScript('../js/modules.js', function() {
+  loadScript('../js/modules.js', function() {
+    loadScript('../js/toggle-modal.js', function() {
       loadScript('../js/switch-tabs.js');
       loadScript('../js/validate-fields.js');
     });

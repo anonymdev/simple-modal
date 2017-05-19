@@ -4,8 +4,13 @@ var closeModal = document.getElementsByClassName("closeModal")[0];
 
 openModal.addEventListener('click', function() {
   modal.style.display = "block";
-  activateSwitchTabsListeners();
-  activateFieldsValidation();
+  // this class is used in order to avoid starting listeners every time this button
+  // is pressed this will make it so that the listeners are activated only once.
+  if (checkForClass(this, 'not-pressed-once')) {
+    activateSwitchTabsListeners();
+    activateFieldsValidation();
+    removeClass(this, 'not-pressed-once');
+  }
 });
 
 closeModal.addEventListener('click', function() {
