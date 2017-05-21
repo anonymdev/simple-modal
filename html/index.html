@@ -15,16 +15,18 @@
       </h2>
 
       <!-- Trigger/Open The Modal -->
-      <button class="styled-button not-pressed-once" id="openModal"> Add Car </button>
+      <button class="styled-button not-pressed-once" id="openModal#1"> Add Car </button>
+      <!-- Uncomment this and the modal#2 div to view multiple modals posibility -->
+      <!-- <button class="styled-button not-pressed-once" id="openModal#2"> Another One </button> -->
     </div>
 
-    <!-- The Modal -->
-    <div id="modal" class="modal hide center">
+    <!-- The Modal (remove "last" if checking multiple modals) -->
+    <div id="modal#1" class="modal last hide center">
 
       <!-- Modal content -->
       <div class="modal-content">
         <div class="modal-header">
-          <span class="closeModal" id="closeModal">&times;</span>
+          <span class="closeModal" id="closeModal#1">&times;</span>
           <h2>Add Product</h2>
           <span> Second-hand Car </span>
           <span class="category"> Category: Automobiles </span>
@@ -32,11 +34,11 @@
         <hr>
         <div class="modal-body">
           <ul>
-            <li> <a id="tab-link#1" class="tab-link active" href="javascript:void(0)"> First tab </a> </li>
-            <li> <a id="tab-link#2" class="tab-link" href="javascript:void(0)"> Second tab </a> </li>
+            <li> <a id="tab-link#1#modal1" class="tab-link active" href="javascript:void(0)"> First tab </a> </li>
+            <li> <a id="tab-link#2#modal1" class="tab-link" href="javascript:void(0)"> Second tab </a> </li>
             <!--
               Uncomment if you want to test the tabs functionality (also uncomment the element with
-              the id tab-field#3)
+              the id tab-field#3#modal1)
             -->
             <!-- <li> <a id="tab-link#3" class="tab-link" href="javascript:void(0)"> Third tab </a> </li> -->
             <!-- <li> <a id="tab-link#4" class="tab-link" href="javascript:void(0)"> Forth tab </a> </li> -->
@@ -45,7 +47,7 @@
           <hr>
 
           <div class="tab-content">
-            <div id="tab-field#1" class="tab-fields">
+            <div id="tab-field#1#modal1" class="tab-fields">
               <form>
                 <div class="field-container">
                   <span class="label"> Title of announcement<span class="star">*</span> </span>
@@ -113,7 +115,7 @@
               </form>
             </div>
 
-            <div id="tab-field#2" class="tab-fields last hide">
+            <div id="tab-field#2#modal1" class="tab-fields last hide">
               <form>
                 <div class="field-container">
                   <span class="label"> Vehicle Damaged <span class="star">*</span> </span>
@@ -160,7 +162,7 @@
               uncomment the element with "tab-link#3" id
             -->
 
-            <!-- <div id="tab-field#3" class="tab-fields hide">
+            <!-- <div id="tab-field#3#modal1" class="tab-fields hide">
               <form id="thirdForm">
                 <div class="field-container">
                   <span class="label"> TEST<span class="star">*</span> </span>
@@ -170,7 +172,7 @@
               </form>
             </div>
 
-            <div id="tab-field#4" class="tab-fields last hide">
+            <div id="tab-field#4#modal1" class="tab-fields last hide">
               <form id="forthForm">
                 <div class="field-container">
                   <span class="label">Yet Another Test<span class="star">*</span> </span>
@@ -186,14 +188,69 @@
         <hr>
         <div class="modal-footer">
           <div class="submit-modal">
-            <button type="button" class="styled-button hide" id="cancel"> Cancel </button>
-            <button type="button" class="styled-button pull-right hide" id="save"> Save </button>
-            <button type="button" class="styled-button pull-right" id="next"> Next </button>
-            <button type="button" class="styled-button pull-right hide" id="previous"> Back </button>
+            <button type="button" class="styled-button hide" id="cancel#1"> Cancel </button>
+            <button type="button" class="styled-button pull-right hide" id="save#1"> Save </button>
+            <button type="button" class="styled-button pull-right" id="next#1"> Next </button>
+            <button type="button" class="styled-button pull-right hide" id="previous#1"> Back </button>
           </div>
         </div>
       </div>
 
     </div>
+
+    <!-- Uncomment this and the openModal#2 button to view multiple modals posibility -->
+
+    <!-- <div id="modal#2" class="modal last hide center">
+
+      <div class="modal-content">
+        <div class="modal-header">
+          <span class="closeModal" id="closeModal#2">&times;</span>
+          <h2>Add Product</h2>
+          <span> Second-hand Car </span>
+          <span class="category"> Category: Automobiles </span>
+        </div>
+        <hr>
+        <div class="modal-body">
+          <ul>
+            <li> <a id="tab-link#1#modal2" class="tab-link active" href="javascript:void(0)"> First tab </a> </li>
+            <li> <a id="tab-link#2#modal2" class="tab-link" href="javascript:void(0)"> Second tab </a> </li>
+          </ul>
+
+          <hr>
+
+          <div class="tab-content">
+            <div id="tab-field#1#modal2" class="tab-fields">
+              <form>
+                <div class="field-container">
+                  <span class="label"> First Field<span class="star">*</span> </span>
+                  <input class="value is-initial" type="text" id="firstField">
+                  <span class="error-message"> First Field is required </span>
+                </div>
+              </form>
+            </div>
+            <div id="tab-field#2#modal2" class="tab-fields last hide">
+              <form>
+                <div class="field-container">
+                  <span class="label"> Second Field<span class="star">*</span> </span>
+                  <input class="value is-initial" type="text" id="secondField">
+                  <span class="error-message"> Second Field is required </span>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <hr>
+        <div class="modal-footer">
+          <div class="submit-modal">
+            <button type="button" class="styled-button hide" id="cancel#2"> Cancel </button>
+            <button type="button" class="styled-button pull-right hide" id="save#2"> Save </button>
+            <button type="button" class="styled-button pull-right" id="next#2"> Next </button>
+            <button type="button" class="styled-button pull-right hide" id="previous#2"> Back </button>
+          </div>
+        </div>
+      </div>
+
+    </div> -->
   </body>
 </html>

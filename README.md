@@ -1,9 +1,7 @@
 <h2> Description </h2>
 This is a simple html modal with css and javascript and no other frameworks/libraries.
 I've tried to make it as modular and generalized as possible, so it would be easy to use
-it for larger purposes (or to implement new functionalities). For now, it only works to have
-one modal in the app without writing custom js (and html) for each modal (because the task was to make only
-one modal), but it is easy to adapt to multiple modals if you want it so.
+it for larger purposes (or to implement new functionalities). You can declare as many modals as you want as long as you respect the principles.
 
 I've also focused on implementing a code that will work on as many browsers as possible, with
 a responsive layout as well (both css and js are cross-browser -> tested on IE11, Safari, Chrome,
@@ -23,37 +21,59 @@ You should work cross-browser in modern browsers and IE11
 
 <h2>Usage:</h2>
 
+To declare a button that opens the modal, set it like this:
+```html
+<button class="styled-button not-pressed-once" id="openModal#1">
+  Add Car
+</button>
+```
+Note: The number of the id should be the same as the number for the modal id that you want it to open (see bellow). Also, the "not-presed once" class is
+used to start the listeners only once when you open the modal for the first time.
+
+To declare a modal, you have to set it's id like this:
+```html
+<div id="modal#1" class="modal hide center">
+<!-- ... -->
+```
+Note: it is very important to have the number of the modal. Also,
+you have to add the "last" class in case you are at the last modal and the index should be the greatest (e.g. if you have to modals, the modal#2 should have "last" class.
+
 To declare a tab, you have to put a link to it, e.g. :
 ```html
 <div class="modal-body">
   <ul>
-    <li> <a id="tab-link#1" class="tab-link active" href="javascript:void(0)"> First tab </a> </li>
+    <li>
+      <a id="tab-link#1#modal1" class="tab-link active" href="javascript:void(0)">
+        First tab
+      </a>
+    </li>
     <!-- ... -->
   </ul>
   <!-- ... -->
 </div>
 <!-- ... -->
 ```
-Note the ```id="tab-link#1"```. For each tab, you have to increment the id !
+Note: ```id="tab-link#1#modal1"```. For each tab, you have to increment the id ! And for each modal you have to increment the modal id !
 
 After that, you have to declare a div with ```id="tab-content"``` and inside of it you declare all
 of the corresponding fields for links, e.g. :
 
 ```html
 <div class="tab-content">
-  <div id="tab-field#1" class="tab-fields">
+  <div id="tab-field#1modal1" class="tab-fields">
     <form>
       <div class="field-container">
         <span class="label"> label for field<span class="star">*</span> </span>
         <input class="value is-initial" type="text" id="labelForField">
         <span class="error-message"> label for field is required </span>
+        <!-- More error messages can go here -->
       </div>
       <!-- ... -->
     </form>
   </div>
 </div>
 ```
-As you can see, you have to set the same id as the link that it coresponds to.
+Note: As you can see, you have to set the same id as the link that it coresponds to.
 
 Every classes are supposed to be used, except for the "is-initial" which is only
 for the required fields that you want to validate on tab change (or submit). Also,

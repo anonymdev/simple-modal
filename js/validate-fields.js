@@ -101,8 +101,8 @@ function showAndRequireField(field) {
   }
 }
 
-function activateFieldsValidation() {
-  var allValues = document.querySelectorAll(".value:not(.optional)");
+function activateFieldsValidation(currentModal) {
+  var allValues = currentModal.querySelectorAll(".value:not(.optional)");
   var brand = document.getElementById("brand");
   var color = document.getElementById("color");
   var mileage = document.getElementById("mileage");

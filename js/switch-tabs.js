@@ -36,16 +36,16 @@ function tabIsInInitialState(tabContent, shouldValidate) {
 // If you're on the last tab, it adds the save and cancel buttons.
 // It also shows previous(except for first tab)/next(except for last tab) buttons.
 function switchClasses(newLink, elementToShow, newIndex, lastIndex, nextBtn, previousBtn) {
-  var currentLink = document.querySelector(".tab-link.active");
-  var elementToHide = document.querySelector(".tab-fields:not(.hide)");
-  var currentIndex = getTabIndex(currentLink.id)
+  var currentLink = this.querySelector(".tab-link.active");
+  var elementToHide = this.querySelector(".tab-fields:not(.hide)");
+  var currentIndex = getIndexFromId(currentLink.id)
   var shouldValidate = (newIndex - currentIndex === 1);
   var invalid = tabContainsErrors(elementToHide);
   var initial = tabIsInInitialState(elementToHide, shouldValidate);
 
   if ((newIndex < currentIndex) || (shouldValidate && !invalid && !initial)) {
-    var saveButton = document.getElementById("save");
-    var cancelButton = document.getElementById("cancel");
+    var saveButton = document.getElementById("save#"+getIndexFromId(this.id));
+    var cancelButton = document.getElementById("cancel#"+getIndexFromId(this.id));
 
     removeClass(currentLink, "active");
     addClass(newLink, "active");
@@ -53,78 +53,73 @@ function switchClasses(newLink, elementToShow, newIndex, lastIndex, nextBtn, pre
     if (newIndex === lastIndex) {
       removeClass(cancelButton, 'hide');
       removeClass(saveButton, 'hide');
-      addClass(next, 'hide');
+      addClass(nextBtn, 'hide');
     } else {
       addClass(saveButton, 'hide');
       addClass(cancelButton, 'hide');
-      removeClass(next, 'hide');
+      removeClass(nextBtn, 'hide');
     }
-    (newIndex == 1) ? addClass(previous, 'hide') : removeClass(previous, 'hide');
+    (newIndex == 1) ? addClass(previousBtn, 'hide') : removeClass(previousBtn, 'hide');
   }
 }
 
-// get the index from the id field (which is <something>#<index>)
-function getTabIndex(id) {
-  return id.split("#")[1];
-}
-
 // gets the desired tab content based on the pressed tab link index.
-function getClickedTabContent(tab) {
-  return document.getElementById("tab-field#"+getTabIndex(tab.id));
+function getClickedTabContent(modal, tab) {
+  return document.getElementById("tab-field#"+getIndexFromId(tab.id)+"#modal"+getIndexFromId(modal.id));
 }
 
 // triggers the next field or the previous one based on the
 // 'next' parameter, which is a boolean showing if the next button
 // is pressed(true), or previous(false).
 function triggerTab(next, last) {
-  var currentLink = document.querySelector(".tab-link.active");
-  var currentIndex = getTabIndex(currentLink.id)*1;
+  var currentLink = this.querySelector(".tab-link.active");
+  var currentIndex = getIndexFromId(currentLink.id)*1;
 
   if (next && (currentIndex !== last*1)) {
-    document.getElementById('tab-link#'+(currentIndex+1)).click();
+    document.getElementById('tab-link#'+(currentIndex+1)+'#modal'+getIndexFromId(this.id)).click();
   }
   else if (!next && (currentIndex*1 !== 1)) {
-    document.getElementById('tab-link#'+(currentIndex-1)).click();
+    document.getElementById('tab-link#'+(currentIndex-1)+'#modal'+getIndexFromId(this.id)).click();
   }
 }
 
 // reset the modal completely if this tab is valid
 function save() {
-  var tabContent = document.querySelector(".tab-fields.last");
-  var allTabs = document.querySelector(".tab-content").children;
+  var tabContent = this.querySelector(".tab-fields.last");
+  var allTabs = this.querySelector(".tab-content").children;
   var invalid = tabContainsErrors(tabContent);
   var initial = tabIsInInitialState(tabContent, true);
 
   if (!initial && !invalid) {
-    clearModal(allTabs, true, true);
+    clearModal.call(this, allTabs, true, getIndexFromId(this.id)==1);
   }
 }
 
 // you can either reset the modal or just close it.
 // I chose to reset it whithout validating this tab.
 function cancel() {
-  var tabContent = document.querySelector(".tab-fields.last");
-  var allTabs = document.querySelector(".tab-content").children;
+  var tabContent = this.querySelector(".tab-fields.last");
+  var allTabs = this.querySelector(".tab-content").children;
 
-  clearModal(allTabs, false, true);
+  clearModal.call(this, allTabs, false, getIndexFromId(this.id)==1);
 }
 
-function activateSwitchTabsListeners() {
-  var tabs = document.querySelectorAll(".tab-link");
-  var lastIndex = getTabIndex(document.querySelector(".tab-fields.last").id);
-  var next = document.getElementById("next");
-  var previous = document.getElementById("previous");
-  var saveButton = document.getElementById("save");
-  var cancelButton = document.getElementById("cancel");
+function activateSwitchTabsListeners(currentModal) {
+  var tabs = currentModal.querySelectorAll(".tab-link");
+  var lastIndex = getIndexFromId(currentModal.querySelector(".tab-fields.last").id);
+  var next = document.getElementById("next#" + getIndexFromId(currentModal.id));
+  var previous = document.getElementById("previous#" + getIndexFromId(currentModal.id));
+  var saveButton = document.getElementById("save#" + getIndexFromId(currentModal.id));
+  var cancelButton = document.getElementById("cancel#" + getIndexFromId(currentModal.id));
 
   for (var i = 0; i < tabs.length; i++) {
     tabs[i].addEventListener('click', switchClasses.bind(
-      null, tabs[i], getClickedTabContent(tabs[i]),
-      getTabIndex(tabs[i].id), lastIndex, next, previous
+      currentModal, tabs[i], getClickedTabContent(currentModal, tabs[i]),
+      getIndexFromId(tabs[i].id), lastIndex, next, previous
     ))
   }
-  next.addEventListener('click', triggerTab.bind(null, true, lastIndex));
-  previous.addEventListener('click', triggerTab.bind(null, false, lastIndex));
-  saveButton.addEventListener('click', save);
-  cancelButton.addEventListener('click', cancel);
+  next.addEventListener('click', triggerTab.bind(currentModal, true, lastIndex));
+  previous.addEventListener('click', triggerTab.bind(currentModal, false, lastIndex));
+  saveButton.addEventListener('click', save.bind(currentModal));
+  cancelButton.addEventListener('click', cancel.bind(currentModal));
 }

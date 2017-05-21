@@ -73,6 +73,11 @@ function clearTaskFields() {
   addClass(details.parentElement, "hide");
 }
 
+// get the index from the id field (which is <something>#<index>)
+function getIndexFromId(id) {
+  return id.split("#")[1];
+}
+
 // function that removes errors and resets modal (on cancel and save)
 function clearModal(tabs, isSaving, taskModal) {
 
@@ -90,7 +95,7 @@ function clearModal(tabs, isSaving, taskModal) {
       addClass(childElements[i].children[1], "is-initial");
     }
   }
-  document.getElementById('tab-link#1').click();
-  addClass(document.getElementById('modal'), 'hide');
+  document.getElementById('tab-link#1#modal'+getIndexFromId(this.id)).click();
+  addClass(this, 'hide');
   isSaving ? alert("The data has been saved!") : alert("The modal has been reset")
 }
