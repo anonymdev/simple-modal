@@ -118,6 +118,21 @@ function addContainerErrors(elements, errorMessageIndex) {
 }
 ```
 
+Also, the next/previous, cancel/save buttons can be added like such:
+
+```html
+<div class="modal-footer">
+    <div class="submit-modal">
+      <button type="button" class="styled-button hide" id="cancel#1"> Cancel </button>
+      <button type="button" class="styled-button pull-right hide" id="save#1"> Save </button>
+      <button type="button" class="styled-button pull-right" id="next#1"> Next </button>
+      <button type="button" class="styled-button pull-right hide" id="previous#1"> Back </button>
+    </div>
+  </div>
+```
+Note: id number stands for the modal id.
+
+
 <h2> Tab Logic </h2>
 The logic for tab switching which I used, is implemented by this scenario:
 
