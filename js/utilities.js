@@ -56,28 +56,35 @@ function removeContainerErrors(elements) {
   }
 }
 
+function clearTaskFields() {
+  var brand = document.getElementById("brand");
+  var logo = document.getElementById("brandLogo");
+  var details = document.getElementById('details');
+
+  // remove the color box
+  removeClass(document.getElementById("colorBox"), "show");
+  // make src of brand logo a 1x1 gif
+  logo.src = "data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs%3D";
+  // reposition the brand label and input
+  removeClass(brand, 'mt-5');
+  removeClass(brand.parentElement.children[0].children[0], 'alignWithPicture');
+  // clear the details field and hide it's container
+  details.value = "";
+  addClass(details.parentElement, "hide");
+}
+
 // function that removes errors and resets modal (on cancel and save)
-function clearModal(tabs, isSaving) {
+function clearModal(tabs, isSaving, taskModal) {
+
+  taskModal && clearTaskFields();
+
   for (var tab = 0; tab < tabs.length; tab++) {
     var childElements = tabs[tab].children[0].children;
 
     for (var i = 0 ; i < childElements.length; i ++) {
-      var brand = document.getElementById("brand");
-      var logo = document.getElementById("brandLogo");
-      var details = document.getElementById('details');
 
       removeContainerErrors(childElements[i].children);
       childElements[i].children[1].value = "";
-      // remove the color box
-      removeClass(document.getElementById("colorBox"), "show");
-      // make src of brand logo a 1x1 gif
-      logo.src = "data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs%3D";
-      // reposition the brand label and input
-      removeClass(brand, 'mt-5');
-      removeClass(brand.parentElement.children[0].children[0], 'alignWithPicture');
-      // clear the details field and hide it's container
-      details.value = "";
-      addClass(details.parentElement, "hide");
 
       // initialize again the fields for validation when they are empty and never blured
       addClass(childElements[i].children[1], "is-initial");

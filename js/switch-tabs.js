@@ -96,7 +96,7 @@ function save() {
   var initial = tabIsInInitialState(tabContent, true);
 
   if (!initial && !invalid) {
-    clearModal(allTabs, true);
+    clearModal(allTabs, true, true);
   }
 }
 
@@ -106,7 +106,7 @@ function cancel() {
   var tabContent = document.querySelector(".tab-fields.last");
   var allTabs = document.querySelector(".tab-content").children;
 
-  clearModal(allTabs, false);
+  clearModal(allTabs, false, true);
 }
 
 function activateSwitchTabsListeners() {

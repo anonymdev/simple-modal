@@ -1,7 +1,9 @@
 <h2> Description </h2>
 This is a simple html modal with css and javascript and no other frameworks/libraries.
 I've tried to make it as modular and generalized as possible, so it would be easy to use
-it for larger purposes (or to implement new functionalities).
+it for larger purposes (or to implement new functionalities). For now, it only works to have
+one modal in the app without writing custom js (and html) for each modal (because the task was to make only
+one modal), but it is easy to adapt to multiple modals if you want it so.
 
 I've also focused on implementing a code that will work on as many browsers as possible, with
 a responsive layout as well (both css and js are cross-browser -> tested on IE11, Safari, Chrome,
