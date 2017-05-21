@@ -101,24 +101,36 @@ function showAndRequireField(field) {
   }
 }
 
+// activate listeners for custom fields required by the task
+// this happens the first time the modal is opened and they
+// remain activated even if the modal closes so we avoid
+// multiple listeners for same fields.
+function validateCustomFields(modal) {
+  if (getIndexFromId(modal.id) == 1) {
+    var brand = document.getElementById("brand");
+    var color = document.getElementById("color");
+    var mileage = document.getElementById("mileage");
+    var vehicleDamaged = document.getElementById("vehicleDamaged");
+    var details = document.getElementById("details");
+    var price = document.getElementById("price");
+    var manufacturingYear = document.getElementById("manufacturingYear");
+
+    brand.addEventListener('change', setBrandSrc);
+    color.addEventListener('keyup',  changeColor);
+    mileage.addEventListener('keyup',  checkNumber);
+    price.addEventListener('keyup',  checkNumber);
+    vehicleDamaged.addEventListener('change', showAndRequireField.bind(vehicleDamaged, details));
+    manufacturingYear.addEventListener('keyup',  checkYear);
+  }
+}
+
 function activateFieldsValidation(currentModal) {
   var allValues = currentModal.querySelectorAll(".value:not(.optional)");
-  var brand = document.getElementById("brand");
-  var color = document.getElementById("color");
-  var mileage = document.getElementById("mileage");
-  var vehicleDamaged = document.getElementById("vehicleDamaged");
-  var details = document.getElementById("details");
-  var price = document.getElementById("price");
-  var manufacturingYear = document.getElementById("manufacturingYear");
 
   for (var i = 0; i < allValues.length; i++) {
     allValues[i].addEventListener('blur', blurEvent);
     allValues[i].addEventListener('focus', focusEvent);
   }
-  brand.addEventListener('change', setBrandSrc);
-  color.addEventListener('keyup',  changeColor);
-  mileage.addEventListener('keyup',  checkNumber);
-  price.addEventListener('keyup',  checkNumber);
-  vehicleDamaged.addEventListener('change', showAndRequireField.bind(vehicleDamaged, details));
-  manufacturingYear.addEventListener('keyup',  checkYear);
+
+  validateCustomFields(currentModal);
 }
