@@ -60,7 +60,7 @@ of the corresponding fields for links, e.g. :
 
 ```html
 <div class="tab-content">
-  <div id="tab-field#1modal1" class="tab-fields">
+  <div id="tab-field#1#modal1" class="tab-fields">
     <form>
       <div class="field-container">
         <span class="label"> label for field<span class="star">*</span> </span>
