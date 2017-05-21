@@ -75,19 +75,50 @@ function focusEvent() {
   removeContainerErrors(this.parentElement.children);
 }
 
+// if the value of a select field is "yes",
+// make another dependent appear and become required
+// also, when the value isn't yes, make it dissapear,
+// optional, and remove all the error classes.
+function showAndRequireField(field) {
+  if (this.value === "yes") {
+    removeClass(field.parentElement, "hide");
+    addClass(field, "is-initial");
+    removeClass(field, "optional");
+    // start listeners only once
+    if (checkForClass(field, "listeners-not-started")){
+      field.addEventListener('blur', blurEvent);
+      field.addEventListener('focus', focusEvent);
+
+      removeClass(field, "listeners-not-started");
+    }
+  } else {
+    addClass(field.parentElement, "hide");
+    removeClass(field, "is-initial");
+    addClass(field, "optional");
+    // You may or may not want to empty the value when changing selection
+    field.value = "";
+    removeContainerErrors(field.parentElement.children);
+  }
+}
+
 function activateFieldsValidation() {
-  var allValues = document.getElementsByClassName("value");
+  var allValues = document.querySelectorAll(".value:not(.optional)");
   var brand = document.getElementById("brand");
   var color = document.getElementById("color");
   var mileage = document.getElementById("mileage");
+  var vehicleDamaged = document.getElementById("vehicleDamaged");
+  var details = document.getElementById("details");
+  var price = document.getElementById("price");
   var manufacturingYear = document.getElementById("manufacturingYear");
 
-  for (let i = 0; i < allValues.length; i++) {
+  for (var i = 0; i < allValues.length; i++) {
     allValues[i].addEventListener('blur', blurEvent);
     allValues[i].addEventListener('focus', focusEvent);
   }
   brand.addEventListener('change', setBrandSrc);
   color.addEventListener('keyup',  changeColor);
   mileage.addEventListener('keyup',  checkNumber);
+  price.addEventListener('keyup',  checkNumber);
+  vehicleDamaged.addEventListener('change', showAndRequireField.bind(vehicleDamaged, details));
   manufacturingYear.addEventListener('keyup',  checkYear);
 }

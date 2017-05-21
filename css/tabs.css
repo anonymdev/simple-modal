@@ -26,7 +26,10 @@ li a:hover:not(.active) {
   background-color: silver;
 }
 
-/* content inside each tab */
+.hide {
+  display: none;
+}
+
 .tab-content {
   margin-top: 15px;
   margin-left: 15px;

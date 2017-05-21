@@ -1,6 +1,6 @@
 @import url("../css/tabs.css");
 @import url("../css/modal.css");
-@import url("../css/open-modal-button.css");
+@import url("../css/styled-button.css");
 @import url("../css/fields.css");
 
 /* a nice safe font with fallbacks */
@@ -16,6 +16,10 @@ body * {
 /* text to vertically align to the logo */
 .alignWithPicture {
   vertical-align: 50%;
+}
+
+.pull-right {
+  float: right;
 }
 
 /* lines should not have margin */

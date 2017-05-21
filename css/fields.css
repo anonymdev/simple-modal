@@ -7,10 +7,6 @@
   text-align: right;
 }
 
-.label.has-error {
-  /*color: red;*/
-}
-
 .is-required {
   color: red;
 }
@@ -40,7 +36,6 @@
   display: inline-block;
 }
 
-/* align select with picture. */
 .mt-5 {
   margin-top: 5px;
 }

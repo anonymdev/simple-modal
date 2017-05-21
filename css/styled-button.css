@@ -1,4 +1,4 @@
-.openModal {
+.styled-button {
   background: #ffffff;
   background-image: -webkit-linear-gradient(top, #ffffff, #cccccc);
   background-image: -moz-linear-gradient(top, #ffffff, #cccccc);
@@ -18,7 +18,7 @@
   text-decoration: none;
 }
 
-.openModal:hover {
+.styled-button:hover {
   background: #f7f7f7;
   background-image: -webkit-linear-gradient(top, #f7f7f7, #8f8f8f);
   background-image: -moz-linear-gradient(top, #f7f7f7, #8f8f8f);
@@ -29,4 +29,4 @@
   cursor: pointer;
 }
 
-.openModal:focus {outline:0;}
+.styled-button:focus {outline:0;}

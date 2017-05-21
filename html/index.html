@@ -15,16 +15,16 @@
       </h2>
 
       <!-- Trigger/Open The Modal -->
-      <button class="openModal not-pressed-once" id="openModal"> Add Car </button>
+      <button class="styled-button not-pressed-once" id="openModal"> Add Car </button>
     </div>
 
     <!-- The Modal -->
-    <div id="modal" class="modal center">
+    <div id="modal" class="modal hide center">
 
       <!-- Modal content -->
       <div class="modal-content">
         <div class="modal-header">
-          <span class="closeModal">&times;</span>
+          <span class="closeModal" id="closeModal">&times;</span>
           <h2>Add Product</h2>
           <span> Second-hand Car </span>
           <span class="category"> Category: Automobiles </span>
@@ -32,15 +32,21 @@
         <hr>
         <div class="modal-body">
           <ul>
-            <li> <a id="firstTab" class="active" href="javascript:void(0)"> First tab </a> </li>
-            <li> <a id="secondTab" class href="javascript:void(0)"> Second tab </a> </li>
+            <li> <a id="tab-link#1" class="tab-link active" href="javascript:void(0)"> First tab </a> </li>
+            <li> <a id="tab-link#2" class="tab-link" href="javascript:void(0)"> Second tab </a> </li>
+            <!--
+              Uncomment if you want to test the tabs functionality (also uncomment the element with
+              the id tab-field#3)
+            -->
+            <!-- <li> <a id="tab-link#3" class="tab-link" href="javascript:void(0)"> Third tab </a> </li> -->
+            <!-- <li> <a id="tab-link#4" class="tab-link" href="javascript:void(0)"> Forth tab </a> </li> -->
           </ul>
 
           <hr>
 
           <div class="tab-content">
-            <div id="firstTabContent">
-              <form id="firstForm">
+            <div id="tab-field#1" class="tab-fields">
+              <form>
                 <div class="field-container">
                   <span class="label"> Title of announcement<span class="star">*</span> </span>
                   <input class="value is-initial" type="text" id="titleOfAnnouncement">
@@ -107,9 +113,83 @@
               </form>
             </div>
 
-            <div style="display:none;" id="secondTabContent">
-              <h3> Al doilea tab </h3>
+            <div id="tab-field#2" class="tab-fields last hide">
+              <form>
+                <div class="field-container">
+                  <span class="label"> Vehicle Damaged <span class="star">*</span> </span>
+                  <select class="value is-initial" id="vehicleDamaged">
+                    <option value="" selected>Select...</option>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                  </select>
+                  <span class="error-message"> Vehicle Damaged is required </span>
+                </div>
+                <div class="field-container hide">
+                  <span class="label"> Details<span class="star">*</span> </span>
+                  <input class="value listeners-not-started optional" type="text" id="details">
+                  <span class="error-message"> Details is required </span>
+                </div>
+                <div class="field-container">
+                  <span class="label"> Price<span class="star">*</span> </span>
+                  <input class="value is-initial" type="text" id="price">
+                  <span class="error-message"> Price is required </span>
+                  <span class="error-message"> Price has to be a number </span>
+                </div>
+                <div class="field-container">
+                  <span class="label"> Currency <span class="star">*</span> </span>
+                  <select class="value is-initial" id="currency">
+                    <option value="" selected>Select...</option>
+                    <option value="RON">Romanian Leu (RON)</option>
+                    <option value="eur">Euro (EUR)</option>
+                    <option value="usd">United States Dollar (USD)</option>
+                  </select>
+                  <span class="error-message"> Currency is required </span>
+                </div>
+                <div class="field-container">
+                  <span class="label"> Description<span class="star">*</span> </span>
+                  <input class="value is-initial" type="text" id="description">
+                  <span class="error-message"> Description is required </span>
+                  <span class="error-message"> Description has to be a number </span>
+                </div>
+              </form>
             </div>
+
+            <!--
+              Uncomment if you want to test the tabs functionality
+              Also, remove "last" class from tab-field#2 for this to work and
+              uncomment the element with "tab-link#3" id
+            -->
+
+            <!-- <div id="tab-field#3" class="tab-fields hide">
+              <form id="thirdForm">
+                <div class="field-container">
+                  <span class="label"> TEST<span class="star">*</span> </span>
+                  <input class="value is-initial" type="text" id="test">
+                  <span class="error-message"> TEST is required </span>
+                </div>
+              </form>
+            </div>
+
+            <div id="tab-field#4" class="tab-fields last hide">
+              <form id="forthForm">
+                <div class="field-container">
+                  <span class="label">Yet Another Test<span class="star">*</span> </span>
+                  <input class="value is-initial" type="text" id="yetAnotherTest">
+                  <span class="error-message"> Yet Another Test is required </span>
+                </div>
+              </form>
+            </div> -->
+
+          </div>
+        </div>
+
+        <hr>
+        <div class="modal-footer">
+          <div class="submit-modal">
+            <button type="button" class="styled-button hide" id="cancel"> Cancel </button>
+            <button type="button" class="styled-button pull-right hide" id="save"> Save </button>
+            <button type="button" class="styled-button pull-right" id="next"> Next </button>
+            <button type="button" class="styled-button pull-right hide" id="previous"> Back </button>
           </div>
         </div>
       </div>

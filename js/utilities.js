@@ -8,12 +8,12 @@ function checkForClass(element, cName) {
   return element.className.split(" ").indexOf(cName) >= 0;
 }
 
-// adds a class to an element and shows it's content, hiding the active one
+// adds a class to an element if it doesn't exist
 function addClass(element, cName) {
   !checkForClass(element, cName) && (element.className += " " + cName);
 }
 
-// removes a class from an element
+// removes a class from an element if it exists
 function removeClass(element, cName) {
   if (checkForClass(element, cName)) {
     var currentClassNames = element.className.split(" ");
@@ -33,10 +33,10 @@ function removeClass(element, cName) {
 function addContainerErrors(elements, errorMessageIndex) {
   var asterix = elements[0].querySelectorAll(".star")[0];
 
-  addClass(asterix, 'is-required');
+  asterix && addClass(asterix, 'is-required');
   addClass(elements[1], 'has-error');
 
-  for (let i = 2; i < elements.length; i++) {
+  for (var i = 2; i < elements.length; i++) {
     var index = errorMessageIndex || 0;
 
     index += 2;
@@ -48,10 +48,42 @@ function addContainerErrors(elements, errorMessageIndex) {
 function removeContainerErrors(elements) {
   var asterix = elements[0].querySelectorAll(".star")[0];
 
-  removeClass(asterix, 'is-required');
+  asterix && removeClass(asterix, 'is-required');
   removeClass(elements[1], 'has-error');
 
-  for (let i = 2; i < elements.length; i++) {
+  for (var i = 2; i < elements.length; i++) {
     removeClass(elements[i], 'is-required');
   }
+}
+
+// function that removes errors and resets modal (on cancel and save)
+function clearModal(tabs, isSaving) {
+  for (var tab = 0; tab < tabs.length; tab++) {
+    var childElements = tabs[tab].children[0].children;
+
+    for (var i = 0 ; i < childElements.length; i ++) {
+      var brand = document.getElementById("brand");
+      var logo = document.getElementById("brandLogo");
+      var details = document.getElementById('details');
+
+      removeContainerErrors(childElements[i].children);
+      childElements[i].children[1].value = "";
+      // remove the color box
+      removeClass(document.getElementById("colorBox"), "show");
+      // make src of brand logo a 1x1 gif
+      logo.src = "data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs%3D";
+      // reposition the brand label and input
+      removeClass(brand, 'mt-5');
+      removeClass(brand.parentElement.children[0].children[0], 'alignWithPicture');
+      // clear the details field and hide it's container
+      details.value = "";
+      addClass(details.parentElement, "hide");
+
+      // initialize again the fields for validation when they are empty and never blured
+      addClass(childElements[i].children[1], "is-initial");
+    }
+  }
+  document.getElementById('tab-link#1').click();
+  addClass(document.getElementById('modal'), 'hide');
+  isSaving ? alert("The data has been saved!") : alert("The modal has been reset")
 }
